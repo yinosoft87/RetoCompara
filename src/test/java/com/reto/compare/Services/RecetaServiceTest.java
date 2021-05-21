@@ -19,16 +19,21 @@ class RecetaServiceTest {
 		lista1.add("cafeina");
 		lista1.add("fenilefrina");
 		lista1.add("ranitidina");
+		lista1.add("paracetamol"); 
 		
 		List<String> lista2 = new ArrayList<String>();
-		lista2.add("paracetamol"); 
-		lista2.add("cafeina");
 		lista2.add("aspirina");
+		lista2.add("paracetamol"); 
 		lista2.add("naproxeno");
+		lista2.add("cafeina");
+	
+		List<String> esperaba = new ArrayList<String>();
+		esperaba.add("paracetamol"); 
+		esperaba.add("cafeina");
 		
 		List<String> resultado = recetaService.BuscarCoinsidentes(lista1, lista2);
 		
-		assertEquals(2, resultado.size());
+		assertEquals(esperaba, resultado);
 	}
 	
 	@Test
@@ -53,17 +58,23 @@ class RecetaServiceTest {
 	
 	@Test
 	void BuscarEnLista_SiEncontro_test() {
-		
-		List<String> lista1 = new ArrayList<String>();
+		/*
 		lista1.add("acido-ascorbico"); 
-		lista1.add("cafeina");
 		lista1.add("paracetamol"); 
+		lista1.add("cafeina");
 		lista1.add("fenilefrina");
 		lista1.add("ranitidina");
+		lista1.add("paracetamol"); 
+		*/
+		List<String> lista1 = new ArrayList<String>();
+		lista1.add("aspirina");
+		lista1.add("paracetamol"); 
+		lista1.add("naproxeno");
+		lista1.add("cafeina");
 		
-		Integer resultado = recetaService.BuscarEnLista("fenilefrina", lista1);
+		int resultado = recetaService.BuscarEnLista("paracetamol", lista1);
 		
-		assertEquals(4, resultado);
+		assertEquals(2, resultado);
 	}
 	
 	@Test
@@ -79,5 +90,7 @@ class RecetaServiceTest {
 		
 		assertEquals(0, resultado);
 	}
+	
+	
 
 }

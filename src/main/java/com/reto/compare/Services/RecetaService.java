@@ -18,26 +18,19 @@ public class RecetaService {
 		return oCoinsidentes;
 	}
 
-	public List<String> BuscarCoinsidentes(List<String> Receta1Ingredientes, List<String> Receta2Ingredientes) {
+	public List<String> BuscarCoinsidentes(List<String> Receta1Ingredientes,List<String> Receta2Ingredientes) {
 		List<String> Coinsidentes = new ArrayList<String>();
-		// Recorrer el list de ingredientes activos de receta 1
 		for (String ingredienteActivo : Receta1Ingredientes) {
-			//obtenemos el index encontrado de la lista de ingredientes activos de receta 2
-			Integer indexEncontrado = BuscarEnLista(ingredienteActivo, Receta2Ingredientes);
-			//si el index es mayor a 0 se encontro un ingrediente activo que coinside
-			if (indexEncontrado > 0) {
-				//agregamos a la lista de coinsidentes
+			if (BuscarEnLista(ingredienteActivo, Receta2Ingredientes) > 0) {
 				Coinsidentes.add(ingredienteActivo);
-				//eliminamos de la lista de la segunda receta para no repetirlo
-				Receta2Ingredientes.remove(indexEncontrado);
+				Receta2Ingredientes.remove(ingredienteActivo);
 			}
 		}
-		// regresamos la lista de ingredientes activos que coinsiden de las 2 recetas
 		return Coinsidentes;
 	}
 
-	public Integer BuscarEnLista(String buscar, List<String> list) {
-		Integer indexEncontrado = 0;
+	public int BuscarEnLista(String buscar, List<String> list) {
+		int indexEncontrado = 0;
 		for (String elementoDeLista : list) {
 			indexEncontrado++;
 			if (elementoDeLista.contains(buscar)) {
