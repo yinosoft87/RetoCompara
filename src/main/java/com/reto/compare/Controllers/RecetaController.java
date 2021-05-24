@@ -12,8 +12,8 @@ public class RecetaController {
 	RecetaService recetaService;
 
 	@GetMapping("/")
-	public String hello() {
-		return "Hello World!";
+	public String index() {
+		return "...";
 	}
 
 	@RequestMapping(value = "/compara", method = RequestMethod.POST, consumes = "application/json")
