@@ -11,6 +11,11 @@ public class RecetaController {
 	@Autowired
 	RecetaService recetaService;
 
+	@GetMapping("/")
+	public String hello() {
+		return "Hello World!";
+	}
+
 	@RequestMapping(value = "/compara", method = RequestMethod.POST, consumes = "application/json")
 	public CoinsidentesDeReceta compararRecetas(@RequestBody DosRecetas recetas) {
 		return recetaService.IngredientesActivosCoinsidentes(recetas);

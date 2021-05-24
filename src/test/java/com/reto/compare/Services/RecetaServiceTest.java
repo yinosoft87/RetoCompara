@@ -58,14 +58,7 @@ class RecetaServiceTest {
 	
 	@Test
 	void BuscarEnLista_SiEncontro_test() {
-		/*
-		lista1.add("acido-ascorbico"); 
-		lista1.add("paracetamol"); 
-		lista1.add("cafeina");
-		lista1.add("fenilefrina");
-		lista1.add("ranitidina");
-		lista1.add("paracetamol"); 
-		*/
+		
 		List<String> lista1 = new ArrayList<String>();
 		lista1.add("aspirina");
 		lista1.add("paracetamol"); 
